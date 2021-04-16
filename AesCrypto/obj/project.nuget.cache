@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "Ny+v9L9xvnRULaD2LfA0I+//s+FcdJGULOcL70zsdkaNIF6RmnTuAvaMzOGcw2OE6cqdD6gOYIVPuEg53kMcOQ==",
+  "dgSpecHash": "aJyNegjmsEby84u6qMtmicySVDBFBRrDxit8cXAUzOaDokXHgAK7ifwdLBDs9mDpjlWnzWwEaJ/scxzumMWT+g==",
   "success": true,
   "projectFilePath": "/Users/test/Desktop/Baris/AesCrypto/AesCrypto/AesCrypto.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/test/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/test/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/test/.nuget/packages/swashbuckle.aspnetcore/6.1.2/swashbuckle.aspnetcore.6.1.2.nupkg.sha512",
+    "/Users/test/.nuget/packages/swashbuckle.aspnetcore.swagger/6.1.2/swashbuckle.aspnetcore.swagger.6.1.2.nupkg.sha512",
+    "/Users/test/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.1.2/swashbuckle.aspnetcore.swaggergen.6.1.2.nupkg.sha512",
+    "/Users/test/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.1.2/swashbuckle.aspnetcore.swaggerui.6.1.2.nupkg.sha512"
+  ],
   "logs": []
 }

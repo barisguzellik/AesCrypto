@@ -1,17 +1,27 @@
 ﻿<Properties StartupConfiguration="{7807C658-A770-4539-AE0C-29A1ED63D69D}|Default">
-  <MonoDevelop.Ide.ItemProperties.AesCrypto FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AesCrypto/appsettings.json">
+  <MonoDevelop.Ide.ItemProperties.AesCrypto PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AesCrypto/Controllers/CryptoController.cs">
     <Files>
-      <File FileName="AesCrypto/Startup.cs" Line="1" Column="1" />
+      <File FileName="AesCrypto/Startup.cs" Line="47" Column="39" />
       <File FileName="AesCrypto/Program.cs" Line="1" Column="1" />
-      <File FileName="AesCrypto/appsettings.json" Line="1" Column="1" />
+      <File FileName="AesCrypto/appsettings.json" Line="10" Column="13" />
+      <File FileName="AesCrypto/Controllers/CryptoController.cs" Line="36" Column="37" />
+      <File FileName="AesCrypto/Models/ApiResponse.cs" Line="10" Column="41" />
+      <File FileName="AesCrypto/Properties/launchSettings.json" Line="15" Column="28" />
+      <File FileName="AesCrypto/DTOs/Request/EncryptRequest.cs" Line="6" Column="42" />
+      <File FileName="AesCrypto/DTOs/Request/DecryptRequest.cs" Line="8" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AesCrypto" expanded="True">
             <Node name="AesCrypto" expanded="True">
-              <Node name="appsettings.json" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="CryptoController.cs" selected="True" />
+              </Node>
+              <Node name="DTOs" expanded="True">
+                <Node name="Request" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
