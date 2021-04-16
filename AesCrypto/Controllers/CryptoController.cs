@@ -17,11 +17,31 @@ namespace AesCrypto.Controllers
 
         private static IConfiguration _configuration;
         private string cryptoKey = "";
+        public RijndaelManaged _aes = new RijndaelManaged();
 
         public CryptoController(IConfiguration configuration)
         {
             _configuration = configuration;
             cryptoKey = _configuration["CryptoKey"];
+
+
+            var keyArray = Convert.FromBase64String(cryptoKey);
+            var keyArrayBytes32Value = new byte[24];
+            Array.Copy(keyArray, keyArrayBytes32Value, 24);
+
+            byte[] ivArray = { 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 7, 7, 7, 7 };
+            var ivBytes16Value = new byte[16];
+            Array.Copy(ivArray, ivBytes16Value, 16);
+
+            var aes = new RijndaelManaged();
+            aes.BlockSize = 128;
+            aes.KeySize = 256;
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+            aes.Key = keyArrayBytes32Value;
+            aes.IV = ivBytes16Value;
+
+            _aes = aes;
         }
 
         [HttpPost]
@@ -41,23 +61,8 @@ namespace AesCrypto.Controllers
 
             try
             {
-                var keyArray = Convert.FromBase64String(cryptoKey);
-                var keyArrayBytes32Value = new byte[24];
-                Array.Copy(keyArray, keyArrayBytes32Value, 24);
 
-                byte[] ivArray = { 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 7, 7, 7, 7 };
-                var ivBytes16Value = new byte[16];
-                Array.Copy(ivArray, ivBytes16Value, 16);
-
-                var aes = new RijndaelManaged();
-                aes.BlockSize = 128;
-                aes.KeySize = 256;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-                aes.Key = keyArrayBytes32Value;
-                aes.IV = ivBytes16Value;
-
-                var crypt = aes.CreateEncryptor();
+                var crypt = _aes.CreateEncryptor();
                 var plainTextByte = ASCIIEncoding.UTF8.GetBytes(request.value);
                 var cipherText = crypt.TransformFinalBlock(plainTextByte, 0, plainTextByte.Length);
 
@@ -100,23 +105,8 @@ namespace AesCrypto.Controllers
 
             try
             {
-                var keyArray = Convert.FromBase64String(cryptoKey);
-                var keyArrayBytes32Value = new byte[24];
-                Array.Copy(keyArray, keyArrayBytes32Value, 24);
 
-                byte[] ivArray = { 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 7, 7, 7, 7 };
-                var ivBytes16Value = new byte[16];
-                Array.Copy(ivArray, ivBytes16Value, 16);
-
-                var aes = new RijndaelManaged();
-                aes.BlockSize = 128;
-                aes.KeySize = 256;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-                aes.Key = keyArrayBytes32Value;
-                aes.IV = ivBytes16Value;
-
-                var decrypt = aes.CreateDecryptor();
+                var decrypt = _aes.CreateDecryptor();
                 var encryptedBytes = Convert.FromBase64CharArray(request.value.ToCharArray(), 0, request.value.Length);
                 var decryptedData = decrypt.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
 
